@@ -3,6 +3,33 @@ defmodule PrefectureJp do
         defstruct code: nil, name: nil, name_e: nil, name_h: nil, name_k: nil, area: nil
     end
 
+    def find(code) when is_bitstring(code) do
+        all
+        |> Enum.find fn(pref) -> pref.code == code end
+    end
+
+    def find([{:code, code}|_]) when is_bitstring(code) do
+        find code
+    end
+
+    def find([{:name, name}|_]) when is_bitstring(name) do
+        dname = String.downcase(name)
+
+        all
+        |> Enum.find fn(pref) ->
+            Enum.any? [
+                String.starts_with?(pref.name,   dname),
+                String.starts_with?(pref.name_e, dname),
+                String.starts_with?(pref.name_h, dname),
+                String.starts_with?(pref.name_k, dname),
+            ]
+        end
+    end
+
+    def find(_) do
+        nil
+    end
+
     def all do
         [
             %Prefecture {
