@@ -1,18 +1,19 @@
 defmodule PrefectureJp do
     defmodule Prefecture do
         defstruct code: nil, name: nil, name_e: nil, name_h: nil, name_k: nil, area: nil
+        @type t :: %__MODULE__{code: nil, name: nil, name_e: nil, name_h: nil, name_k: nil, area: nil}
     end
 
-    def find(code) when is_bitstring(code) do
+    def find(code) when is_binary(code) do
         all
         |> Enum.find fn(pref) -> pref.code == code end
     end
 
-    def find([{:code, code}|_]) when is_bitstring(code) do
+    def find([{:code, code}|_]) when is_binary(code) do
         find code
     end
 
-    def find([{:name, name}|_]) when is_bitstring(name) do
+    def find([{:name, name}|_]) when is_binary(name) do
         dname = String.downcase(name)
 
         all
