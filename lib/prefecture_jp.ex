@@ -1,7 +1,7 @@
 defmodule PrefectureJp do
     defmodule Prefecture do
         defstruct code: nil, name: nil, name_e: nil, name_h: nil, name_k: nil, area: nil
-        @type t :: %__MODULE__{code: nil, name: nil, name_e: nil, name_h: nil, name_k: nil, area: nil}
+        @type t :: %__MODULE__{code: String.t, name: String.t, name_e: String.t, name_h: String.t, name_k: String.t, area: String.t}
     end
 
     def find(code) when is_binary(code) do
