@@ -27,6 +27,7 @@ defmodule PrefectureJp.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:postgrex, ">= 0.0.0", only: :test},
+     {:ecto, "~> 1.0", only: :test}]
   end
 end
