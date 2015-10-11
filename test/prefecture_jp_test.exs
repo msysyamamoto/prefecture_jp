@@ -1,5 +1,15 @@
+defmodule PrefectureJpTest.Place do
+    use Ecto.Model
+    schema "places" do
+        field :prefecture_code, :string
+    end
+
+    use PrefectureJp, :prefecture_code
+end
+
 defmodule PrefectureJpTest do
     use ExUnit.Case
+
     doctest PrefectureJp
 
     test "return 47 elements" do
@@ -36,5 +46,11 @@ defmodule PrefectureJpTest do
         assert PrefectureJp.find(invalid: "tokyo") == nil
         assert PrefectureJp.find(a: "a", b: "b") == nil
         assert PrefectureJp.find(12345) == nil
+    end
+
+    test "ecto" do
+        alias PrefectureJpTest.Place
+        place = %Place{prefecture_code: "13"}
+        assert (place |> Place.prefecture(:name) == "東京都")
     end
 end

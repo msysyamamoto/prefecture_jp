@@ -4,6 +4,16 @@ defmodule PrefectureJp do
         @type t :: %__MODULE__{code: String.t, name: String.t, name_e: String.t, name_h: String.t, name_k: String.t, area: String.t}
     end
 
+    defmacro __using__(colmun) do
+        quote do
+            def prefecture(struct, key) do
+                Map.fetch!(struct, unquote(colmun))
+                |> PrefectureJp.find
+                |> Map.fetch!(key)
+            end
+        end
+    end
+
     def find(code) when is_binary(code) do
         all
         |> Enum.find fn(pref) -> pref.code == code end
@@ -30,6 +40,7 @@ defmodule PrefectureJp do
     def find(_) do
         nil
     end
+
 
     def all do
         [
