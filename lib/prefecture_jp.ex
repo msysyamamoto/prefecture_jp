@@ -1,7 +1,6 @@
 defmodule PrefectureJp do
     defmodule Prefecture do
         defstruct code: nil, name: nil, name_e: nil, name_h: nil, name_k: nil, area: nil
-        @type t :: %__MODULE__{code: String.t, name: String.t, name_e: String.t, name_h: String.t, name_k: String.t, area: String.t}
     end
 
     defmacro __using__(colmun) do
@@ -14,15 +13,18 @@ defmodule PrefectureJp do
         end
     end
 
+    @spec find(String.t) :: any
     def find(code) when is_binary(code) do
         all
         |> Enum.find fn(pref) -> pref.code == code end
     end
 
+    @spec find([{atom, String.t}]) :: any
     def find([{:code, code}|_]) when is_binary(code) do
         find code
     end
 
+    @spec find([{atom, String.t}]) :: any
     def find([{:name, name}|_]) when is_binary(name) do
         dname = String.downcase(name)
 
@@ -37,11 +39,13 @@ defmodule PrefectureJp do
         end
     end
 
+    @spec find(any) :: any
     def find(_) do
         nil
     end
 
 
+    @spec all() :: [struct]
     def all do
         [
             %Prefecture {
