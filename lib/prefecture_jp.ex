@@ -13,6 +13,39 @@ defmodule PrefectureJp do
         end
     end
 
+    @doc ~S"""
+    ## Examples
+
+        iex> PrefectureJp.find("13").name
+        "東京都"
+
+        iex> PrefectureJp.find(code: "13").name
+        "東京都"
+
+        iex> PrefectureJp.find(name: "東京都").code
+        "13"
+
+        iex> PrefectureJp.find(name: "TOKYO").code
+        "13"
+
+        iex> PrefectureJp.find(name: "tokyo").code
+        "13"
+
+        iex> PrefectureJp.find(name: "トウキョウト").code
+        "13"
+
+        iex> PrefectureJp.find(name: "とうきょうと").code
+        "13"
+
+        iex> PrefectureJp.find("48")
+        nil
+
+        iex> PrefectureJp.find(code: "48")
+        nil
+
+        iex> PrefectureJp.find(name: "ワシントン")
+        nil
+    """
     @spec find(String.t) :: any
     def find(code) when is_binary(code) do
         all
@@ -43,7 +76,6 @@ defmodule PrefectureJp do
     def find(_) do
         nil
     end
-
 
     @spec all() :: [struct]
     def all do
