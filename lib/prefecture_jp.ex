@@ -1,8 +1,19 @@
 defmodule PrefectureJp do
+    @moduledoc """
+    """
+
     defmodule Prefecture do
+        @moduledoc """
+        """
         defstruct code: nil, name: nil, name_e: nil, name_h: nil, name_k: nil, area: nil
+        @type t :: %__MODULE__{
+            code: String.t, name: String.t, name_e: String.t,
+            name_h: String.t, name_k: String.t, area: String.t
+        }
     end
 
+    @doc """
+    """
     defmacro __using__(colmun) do
         quote do
             def prefecture(struct, key) do
