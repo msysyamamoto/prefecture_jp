@@ -6,7 +6,7 @@ Inspired by [jp_prefecture](https://github.com/chocoby/jp_prefecture).
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+If [available in Hex](https://hex.pm/packages/prefecture_jp), the package can be installed as:
 
 * Add prefecture_jp to your list of dependencies in `mix.exs`:
 
