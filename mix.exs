@@ -5,6 +5,7 @@ defmodule PrefectureJp.Mixfile do
     [app: :prefecture_jp,
      version: "0.0.1",
      elixir: "~> 1.1",
+     description: description,
      package: package,
      deps: deps]
   end
@@ -27,6 +28,12 @@ defmodule PrefectureJp.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:ecto, "~> 1.0", only: :test}]
+  end
+
+  defp description do
+    """
+    PrefectureJp is a library for Japanese prefecture.
+    """
   end
 
   defp package do
