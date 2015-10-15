@@ -5,8 +5,7 @@ defmodule PrefectureJp.Mixfile do
     [app: :prefecture_jp,
      version: "0.0.1",
      elixir: "~> 1.1",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
+     package: package,
      deps: deps]
   end
 
@@ -29,4 +28,10 @@ defmodule PrefectureJp.Mixfile do
   defp deps do
     [{:ecto, "~> 1.0", only: :test}]
   end
+
+  defp package do
+      [maintainers: ["Masayasu Yamamoto"],
+       licenses: ["MIT"],
+       links: %{"GitHub" => "https://github.com/ymmtmsys/prefecture_jp"}]
+    end
 end
