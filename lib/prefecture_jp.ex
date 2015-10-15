@@ -1,10 +1,14 @@
 defmodule PrefectureJp do
     @moduledoc """
+    PrefectureJp is a library for converting the Japanese prefecture code and
+    Japanese prefecture name.
     """
 
     defmodule Prefecture do
         @moduledoc """
+        A struct responsible to hold prefecture information.
         """
+
         defstruct code: nil, name: nil, name_e: nil, name_h: nil, name_k: nil, area: nil
         @type t :: %__MODULE__{
             code: String.t, name: String.t, name_e: String.t,
@@ -12,10 +16,10 @@ defmodule PrefectureJp do
         }
     end
 
-    @doc """
-    """
+    @doc false
     defmacro __using__(colmun) do
         quote do
+            @spec prefecture(PrefectureJp.Prefecture.t, String.t) :: any
             def prefecture(struct, key) do
                 Map.fetch!(struct, unquote(colmun))
                 |> PrefectureJp.find
