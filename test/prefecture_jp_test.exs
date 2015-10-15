@@ -1,10 +1,11 @@
 defmodule PrefectureJpTest.Place do
     use Ecto.Model
+    use PrefectureJp, :prefecture_code
+    
     schema "places" do
         field :prefecture_code, :string
     end
 
-    use PrefectureJp, :prefecture_code
 end
 
 defmodule PrefectureJpTest do
