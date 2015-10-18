@@ -54,3 +54,7 @@ iex> place = %Place{prefecture_code: "23"}
 iex> place |> Place.prefecture(:name)
 "愛知県"
 ```
+
+## LICENSE
+
+This software is released under the MIT License, see LICENSE.
