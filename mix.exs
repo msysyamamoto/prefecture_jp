@@ -3,7 +3,7 @@ defmodule PrefectureJp.Mixfile do
 
   def project do
     [app: :prefecture_jp,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.1",
      description: description,
      package: package,
