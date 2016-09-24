@@ -41,6 +41,6 @@ defmodule PrefectureJp.Mixfile do
   defp package do
       [maintainers: ["Masayasu Yamamoto"],
        licenses: ["MIT"],
-       links: %{"GitHub" => "https://github.com/ymmtmsys/prefecture_jp"}]
+       links: %{"GitHub" => "https://github.com/msysyamamoto/prefecture_jp"}]
     end
 end
