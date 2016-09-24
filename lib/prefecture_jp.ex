@@ -63,7 +63,7 @@ defmodule PrefectureJp do
     """
     @spec find(String.t) :: any
     def find(code) when is_binary(code) do
-        all
+        all()
         |> Enum.find(fn(pref) -> pref.code == code end)
     end
 
@@ -76,7 +76,7 @@ defmodule PrefectureJp do
     def find([{:name, name}|_]) when is_binary(name) do
         dname = String.downcase(name)
 
-        all
+        all()
         |> Enum.find(fn(pref) ->
             Enum.any? [
                 String.starts_with?(pref.name,   dname),

@@ -5,9 +5,9 @@ defmodule PrefectureJp.Mixfile do
     [app: :prefecture_jp,
      version: "0.0.2",
      elixir: "~> 1.1",
-     description: description,
-     package: package,
-     deps: deps]
+     description: description(),
+     package: package(),
+     deps: deps()]
   end
 
   # Configuration for the OTP application
