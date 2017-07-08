@@ -1,5 +1,5 @@
 defmodule PrefectureJpTest.Place do
-    use Ecto.Model
+    use Ecto.Schema
     use PrefectureJp, :prefecture_code
     
     schema "places" do
